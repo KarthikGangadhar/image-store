@@ -1,0 +1,28 @@
+{
+  "name": "image-store",
+  "version": "1.0.0",
+  "description": "This code reads cricapi image urls and stores them to mongodb",
+  "main": "Index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KarthikGangadhar/image-store.git"
+  },
+  "keywords": [
+    "mongodb",
+    "image"
+  ],
+  "author": "kgangadhar <karthikg1643@gmail.com> (https://github.com/karthikgangadhar)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KarthikGangadhar/image-store/issues"
+  },
+  "homepage": "https://github.com/KarthikGangadhar/image-store#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "mongoose": "^5.0.8",
+    "request": "^2.83.0"
+  }
+}
