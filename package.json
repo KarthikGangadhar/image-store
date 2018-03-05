@@ -2,8 +2,9 @@
   "name": "image-store",
   "version": "1.0.0",
   "description": "This code reads cricapi image urls and stores them to mongodb",
-  "main": "Index.js",
+  "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,8 +22,16 @@
   },
   "homepage": "https://github.com/KarthikGangadhar/image-store#readme",
   "dependencies": {
-    "express": "^4.16.2",
+    "hapi": "^13.0.0",
     "mongoose": "^5.0.8",
-    "request": "^2.83.0"
+    "request": "^2.83.0",
+    "hapi-swagger": "^6.0.0",
+    "inert": "^4.1.x",
+    "joi": "^10.1.0",
+    "vision": "^4.1.x"
+  },
+  "engines": {
+    "node": "8.9.4",
+    "npm": "5.4.2"
   }
 }
