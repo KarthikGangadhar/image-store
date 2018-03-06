@@ -5,7 +5,7 @@ var Schema = mongoose.Schema;
 // set up a mongoose model and pass it using module.exports
 module.exports = mongoose.model('Images', new Schema({
     img: {
-        pid: String,
+        pid: { type : String , unique : true, required : true, dropDups: true },
         data: Buffer,
         contentType: String
     }
