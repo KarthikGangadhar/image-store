@@ -19,26 +19,61 @@ const resultHTTPStatus = {
 };
 
 module.exports = [{
-    method: 'GET',
-    path: '/storeImages',
-    config: {
-        handler: Handlers.storeImages,
-        description: 'updates images of player within specified pid range',
-        tags: ['api', 'reduced'],
-        notes: ['updates images of player within specified pid range'],
-        plugins: {
-            'hapi-swagger': {
-                responses: resultHTTPStatus
-            }
-        },
-        validate: {
-            query: {
-                min: Joi.string().required().description('specify min value of pid'),
-                max: Joi.string().required().description('specify max value of pid'),
+        method: 'GET',
+        path: '/storeImages',
+        config: {
+            handler: Handlers.storeImages,
+            description: 'updates images of player within specified pid range',
+            tags: ['api', 'reduced'],
+            notes: ['updates images of player within specified pid range'],
+            plugins: {
+                'hapi-swagger': {
+                    responses: resultHTTPStatus
+                }
+            },
+            validate: {
+                query: {
+                    min: Joi.string().required().description('specify min value of pid'),
+                    max: Joi.string().required().description('specify max value of pid'),
+                }
             }
         }
-    }
-},
+    },
+    {
+        method: 'GET',
+        path: '/Images',
+        config: {
+            handler: Handlers.getAllImages,
+            description: 'Available images',
+            tags: ['api', 'reduced'],
+            notes: ['Available images'],
+            plugins: {
+                'hapi-swagger': {
+                    responses: resultHTTPStatus
+                }
+            }
+        }
+    },
+    {
+        method: 'GET',
+        path: '/Images/{pid}',
+        config: {
+            handler: Handlers.getByIdImages,
+            description: 'Get Images By pid',
+            tags: ['api', 'reduced'],
+            notes: ['Fetches the existing crickers data by Id'],
+            plugins: {
+                'hapi-swagger': {
+                    responses: resultHTTPStatus
+                }
+            },
+            validate: {
+                query: {
+                    pid: Joi.string().required().description('pid: cricker Id')
+                }
+            }
+        }
+    },
     // {
     //     method: 'POST',
     //     path: '/crickers',
@@ -57,26 +92,7 @@ module.exports = [{
     //         }
     //     }
     // },
-    // {
-    //     method: 'GET',
-    //     path: '/crickers/{crickerId}',
-    //     config: {
-    //         handler: Handlers.getByIdPlayer,
-    //         description: 'Get crickers By ID',
-    //         tags: ['api', 'reduced'],
-    //         notes: ['Fetches the existing crickers data by Id'],
-    //         plugins: {
-    //             'hapi-swagger': {
-    //                 responses: resultHTTPStatus
-    //             }
-    //         },
-    //         validate: {
-    //             query: {
-    //                 id: Joi.string().required().description('Id: cricker Id')
-    //             }
-    //         }
-    //     }
-    // }
+
     // ,{
     //     method: 'PUT',
     //     path: '/crickers/{crickerId}',
